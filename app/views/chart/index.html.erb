@@ -1,0 +1,59 @@
+
+<p id="notice">
+    <%= notice %>
+</p>
+
+<h1>Orders</h1>
+<form>
+    <input id="bday-month" type="month" name="bdaymonth" onkeyup="myFunction()">
+    <input type="submit" id="btn">
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Pay type</th>
+            <th>CreatedAt</th>
+            <th>Total</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @orders%>
+            <h1>All total</h1>
+            <%= $Alltotal%>
+                <% @orders.each do |order| %>
+                    <tr>
+                        <td>
+                            <%= order.name %>
+                        </td>
+                        <td>
+                            <%= order.address %>
+                        </td>
+                        <td>
+                            <%= order.phone %>
+                        </td>
+                        <td>
+                            <%= order.email %>
+                        </td>
+                        <td>
+                            <%= order.pay_type %>
+                        </td>
+                        <td>
+                            <%= order.created_at.strftime("%d/%m/%Y") %>
+                        </td>
+                        <td>
+                            <%= number_to_currency(order.total) %>
+                        </td>
+                             <td><%= link_to 'Show', order %></td>
+                    </tr>
+                    <% end %>
+                        <%end%>
+    </tbody>
+
+</table>
+
+<br>

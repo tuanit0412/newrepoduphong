@@ -1,0 +1,220 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+
+
+
+<html>
+
+<head>
+	<title>Free Adidas Website Template | Shop :: w3layouts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="/assets/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/assets/form.css" rel="stylesheet" type="text/css" media="all" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="/assets/jquery.min.js"></script>
+	<script src="/assets/jquery.easydropdown.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".dropdown img.flag").addClass("flagvisibility");
+
+			$(".dropdown dt a").click(function () {
+				$(".dropdown dd ul").toggle();
+			});
+
+			$(".dropdown dd ul li a").click(function () {
+				var text = $(this).html();
+				$(".dropdown dt a span").html(text);
+				$(".dropdown dd ul").hide();
+				$("#result").html("Selected value is: " + getSelectedValue("sample"));
+			});
+
+			function getSelectedValue(id) {
+				return $("#" + id).find("dt a span.value").html();
+			}
+
+			$(document).bind('click', function (e) {
+				var $clicked = $(e.target);
+				if (!$clicked.parents().hasClass("dropdown"))
+					$(".dropdown dd ul").hide();
+			});
+
+
+			$("#flagSwitcher").click(function () {
+				$(".dropdown img.flag").toggleClass("flagvisibility");
+			});
+		});
+	</script>
+		<title>Free Adidas Website Template | Shop :: w3layouts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="/assets/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/assets/form.css" rel="stylesheet" type="text/css" media="all" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="/assets/jquery.min.js"></script>
+	<script src="/assets/jquery.easydropdown.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".dropdown img.flag").addClass("flagvisibility");
+
+			$(".dropdown dt a").click(function () {
+				$(".dropdown dd ul").toggle();
+			});
+
+			$(".dropdown dd ul li a").click(function () {
+				var text = $(this).html();
+				$(".dropdown dt a span").html(text);
+				$(".dropdown dd ul").hide();
+				$("#result").html("Selected value is: " + getSelectedValue("sample"));
+			});
+
+			function getSelectedValue(id) {
+				return $("#" + id).find("dt a span.value").html();
+			}
+
+			$(document).bind('click', function (e) {
+				var $clicked = $(e.target);
+				if (!$clicked.parents().hasClass("dropdown"))
+					$(".dropdown dd ul").hide();
+			});
+
+
+			$("#flagSwitcher").click(function () {
+				$(".dropdown img.flag").toggleClass("flagvisibility");
+			});
+		});
+	</script>
+	
+	<!-- start menu -->
+	<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="/assets/megamenu.js"></script>
+	<script>
+		$(document).ready(function () {
+			$(".megamenu").megamenu();
+		});
+	</script>
+	<!-- end menu -->
+	<script type="text/javascript" src="/assets/jquery.jscrollpane.min.js"></script>
+	<script type="text/javascript" id="sourcecode">
+		$(function () {
+			$('.scroll-pane').jScrollPane();
+		});
+	</script>
+	<!-- top scrolling -->
+	<script type="text/javascript" src="/assets/move-top.js"></script>
+	<script type="text/javascript" src="/assets/easing.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1200);
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+
+		<div class="wrap">
+
+			<div class="cont span_2_of_3">
+				<div class="mens-toolbar">
+					<div class="sort">
+						<div class="sort-by">
+							<label>Sort By</label>
+							<select>
+								<option value="">
+									Popularity </option>
+								<option value="">
+									Price : High to Low </option>
+								<option value="">
+									Price : Low to High </option>
+							</select>
+							<a href="">
+								<img src="/assets/arrow2.gif" alt="" class="v-middle">
+							</a>
+						</div>
+					</div>
+					<div class="pager">
+						<ul class="dc_pagination dc_paginationA dc_paginationA06">
+							<li>
+								<a href="#" class="previous"></a>
+							</li>
+
+						</ul>
+						<div class="clear"></div>
+					</div>
+
+					<div class="clear"></div>
+					<div class="ransack-pagination" , panding>
+						<%= will_paginate @products %>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class = "ajax">
+				<% @products.each do |product| %>
+					<div class="box1">
+
+						<div class="col_1_of_single1 span_1_of_single1">
+							<a href="#">
+								<div class="view1 view-fifth1">
+									<div class="top_box">
+										<h3 class="m_1">
+											<%= product.title %>
+										</h3>
+										<p class="m_2">Lorem ipsum</p>
+										<div class="grid_img">
+											<%= image_tag product.image.url(:medium), :size =>"250x175"%>
+												<div class="mask1">
+													                <%= link_to 'Detail Product', product_path(product), :class => "info" %>
+												</div>
+										</div>
+										<div class="price">
+											<%= number_to_currency(product.price) %>
+										</div>
+									</div>
+								</div>
+								<span class="rating1">
+									<br>
+								</span>
+								<ul class="list2">
+									<li>
+										<img src="/assets/plus.png" alt="" />
+										<ul class="icon1 sub-icon1 profile_img">
+											<li>
+												<a>
+												<%= button_to 'Add To Cart', line_items_path(product_id: product), remote: true, :class=>"active-icon" %></a>
+												<!-- <ul class="sub-icon1 list">
+													<li>
+														<h3>sed diam nonummy</h3>
+														<a href=""></a>
+													</li>
+													<li>
+														<p>Lorem ipsum dolor sit amet, consectetuer
+															<a href="">adipiscing elit, sed diam</a>
+														</p>
+													</li>
+												</ul> -->
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<div class="clear"></div>
+							</a>
+						</div>
+						<% end %>
+						</div>
+							<div class="clear"></div>
+					</div>
+<div class="clear"></div>
+
+</body>
+</html>
