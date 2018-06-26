@@ -32,7 +32,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to store_index_url } #nếu item được tạo trong cart thì render lại trang store index
+        format.html { redirect_to request.referrer } #nếu item được tạo trong cart thì load lại trang đang đứng có ajax
         format.json { @current_item = @line_item }
         format.json { render :show, status: :created, location: @line_item }
       else

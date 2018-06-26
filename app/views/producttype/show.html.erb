@@ -1,0 +1,46 @@
+<p id="notice">
+  <%= notice %>
+
+  <table>
+
+  <% @products.each do |product| %>
+    <div class="box1">
+
+        <div class="col_1_of_single1 span_1_of_single1">
+            <a href="#">
+                <div class="view1 view-fifth1">
+                    <div class="top_box">
+                        <h3 class="m_1">
+                            <%= product.title %>
+                        </h3>
+                        <div class="grid_img">
+                            <%= image_tag product.image.url(:medium), :size =>"250x175"%>
+                                <div class="mask1">
+                                                    <%= link_to 'Detail Product', product_path(product), :class => "info" %>
+                                </div>
+                        </div>
+                        <div class="price">
+                        <%= number_to_currency(product.price, precision: 0, unit: "VND", separator: ",", format: "%n %u") %>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="list2">
+                    <li>
+                        <img src="/assets/plus.png" alt="" />
+                        <ul class="icon1 sub-icon1 profile_img">
+                            <li>
+                                <a>
+                                <%= button_to 'Add To Cart', line_items_path(product_id: product), remote: true, :class=>"active-icon" %></a>
+                              
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </a>
+        </div>
+        <% end %>
+    </table>
+
+    <br />

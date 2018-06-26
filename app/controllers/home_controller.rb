@@ -3,11 +3,11 @@ class HomeController < ApplicationController
   before_action :set_cart
 
   def index
-    @products = Product.where("price = 100").all.paginate(page: params[:page], per_page: 5)
+    @products = Product.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
     if params[:query].present?
-      @products = Product.where("price = 1000").search(params[:query]).paginate(page: params[:page], per_page: 15)
+      @products = Product.search(params[:query]).paginate(page: params[:page], per_page: 15).order(created_at: :desc)
     else
-      @products = Product.where("price = 1000").all.paginate(page: params[:page], per_page: 15)
+      @products = Product.all.paginate(page: params[:page], per_page: 15).order(created_at: :desc)
     end
     if current_user
       if current_user.admin == true

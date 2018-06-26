@@ -98,6 +98,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</ul>
 			</div>
 
+			<!--search-->
+			<ul class="icon2 sub-icon2 profile_img">
+				<li style="padding-top: 10px">
+					<a class="active-icon c2" href="#">
+						<img src="/assets/find.png" /> </a>
+					<ul class="sub-icon2 list">
+						<li>
+							<a class="color12">
+	
+								<%= form_tag store_index_path, method: :get do %>
+									<%= text_field_tag "query", params[:query], placeholder: "Name" %>
+										<%= submit_tag "Search!" %>
+											<% end %>
+							</a>
+						</li>
+
+				</li>
+				</ul>
+				</li>
+			</ul>
+			<!--end search-->
+<!--cart-->
 			<ul class="icon2 sub-icon2 profile_img">
 				<li style="padding-top: 10px">
 					<a class="active-icon c2" href="#">
@@ -115,6 +137,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</ul>
 				</li>
 			</ul>
+			<!--end cart-->
 			<div class="clear"></div>
 		</div>
 	</div>
@@ -126,31 +149,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<a class="color1" href="/">Home</a>
 				</li>
 				<li class="grid">
-					<a class="color2" href="store">Men</a>
+					<a class="color2" href="store">Type</a>
 					<div class="megapanel">
 						<div class="row">
 							<div class="col1">
 								<div class="h_nav">
-									<h4>popular</h4>
+									
 									<ul>
 										<li>
-											<%= link_to "new arrivals", store_index_path %>
+											<% if @cart %>
+
+									<% @types.each do |type| %>
+										<%= link_to type.typename, producttype_path(type.typename) %>
+									<% end %>
+									<% end %>
+
 										</li>
-										<li>
-											<a href="store">men</a>
-										</li>
-										<li>
-											<a href="store">women</a>
-										</li>
-										<li>
-											<a href="store">accessories</a>
-										</li>
-										<li>
-											<a href="store">kids</a>
-										</li>
-										<li>
-											<a href="store">login</a>
-										</li>
+										
 									</ul>
 								</div>
 							</div>
@@ -286,15 +301,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<li>
 						<a class="color11" href="store">Originals</a>
 					</li>
-					<li>
-						<a class="color12">
-
-							<%= form_tag store_index_path, method: :get do %>
-								<%= text_field_tag "query", params[:query], placeholder: "Name" %>
-									<%= submit_tag "Search!" %>
-										<% end %>
-						</a>
-					</li>
+					
 					</li>
 					</li>
 			</ul>

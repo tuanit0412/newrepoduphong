@@ -57,7 +57,7 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to store_index_url }
+      format.html { redirect_to request.referrer }  #empty cart xong vẫn ở trang đang đứng
       format.json { head :no_content }
     end
   end
