@@ -1,5 +1,5 @@
 Rails.application.configure do
-  @pass = "tuan04121996"
+  @pass = "Tuan04121996"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -42,7 +42,7 @@ Rails.application.configure do
     port: 587,
     domain: "domain.of.sender.net",
     authentication: "plain",
-    user_name: "tuankute0412@gmail.com",
+    user_name: "tuanit041296@gmail.com",
     password: @pass,
     enable_starttls_auto: true,
   }
