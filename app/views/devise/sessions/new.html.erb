@@ -1,0 +1,43 @@
+
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="login">
+      <div class="wrap">
+    <div class="col_1_of_login span_1_of_login">
+      <h4 class="title">Welcome to</h4>
+      <h5 class="sub_title">Our site</h5>
+    
+      <div class="button1">
+          <img src="/assets/user.jpg" alt="" />
+       </div>
+       <div class="clear"></div>
+    </div>
+    <div class="col_1_of_login span_1_of_login">
+      <div class="login-title">
+             <h4 class="title">Please Login</h4>
+       <div class="comments-area">
+        <form>
+          <p>
+            <label  style="font-weight: bold">Email</label>
+            <span>*</span>
+            <%= f.text_field :email, required: false, autofocus: true %> 
+          </p>
+          <p>
+            <label style="font-weight: bold">Password</label>
+            <span>*</span>
+            <%= f.password_field :password, required: false %>
+          </p>
+           <p id="login-form-remember">
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            <label><%= render "devise/shared/links" %></label>
+           </p>
+           <p>
+              <%= f.button :submit, "Log in" %>
+          </p>
+        </form>
+      </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+      <% end %>

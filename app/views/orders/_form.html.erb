@@ -14,37 +14,74 @@
     </div>
     <% end %>
 
-      <div class="field">
-        <%= form.label :name %>
-          <%= form.text_field :name, size: 40 %>
-      </div>
+      <center>
+        <table class="ec">
+          <tbody>
+            <tr>
+              <td>
+                <div class="field">
+                  <%= form.label "Tên khách hàng: " %>
+              </td>
+              <td>
+                <%= form.text_field :name,size:41 %>
+                  </div>
+              </td>
+            </tr>
 
-      <div class="field">
-        <%= form.label :address %>
-          <%= form.text_area :address, rows: 3, cols: 40 %>
-      </div>
+            <tr>
+              <td>
+                <div class="field">
+                  <%= form.label "Địa chỉ: " %>
+              </td>
+              <td>
+                <%= form.text_area :address, rows: 3, cols: 40 %>
+              </td>
+            </tr>
 
-      <div class="field">
-        <%= form.label :phone %>
-          <%= form.number_field :phone %>
-      </div>
+            <tr>
+              <td>
+                <div class="field">
+                  <%= form.label "Số điện thoại: " %>
+              </td>
+              <td>
+                <%= form.text_field :phone ,size:41%>
+              </td>
+            </tr>
 
-      <div class="field">
-        <%= form.label :email %>
-          <%= form.email_field :email, size: 40 %>
-      </div>
-
-      <div class="field">
-        <%= form.label :pay_type %>
-          <%= form.select :pay_type, Order.pay_types.keys,
+            <tr>
+              <td>
+                <div class="field">
+                  <%= form.label "Email: " %>
+              </td>
+              <td>
+                <%= form.text_field :email, size: 41 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="field">
+                  <%= form.label "Cách thức thanh toán: " %>
+                </td>
+                <td>
+                    <%= form.select :pay_type, Order.pay_types.keys,
     prompt: 'Select a payment method' %>
-      </div>
-      <div class="field">
-          <%= form.label :total %>
-          <%= form.number_field :total, :value =>@total,:readonly => true%>
-      </div>
+                </td>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       
+        <div class="field">
+        <hr>
+        <div class="giatien"> <%= form.label :total %> : <%= number_to_currency(@total, unit: " VNĐ",format: "%n %u",:precision => 0) %> </div>
+        <div hidden> <%= form.number_field :total, :value =>@total,:readonly => true%> </div>
+       </div>
+           
 
-      <div class="actions">
-        <%= form.submit %>
-      </div>
-      <% end %>
+       <div class="actions">
+          <%= form.submit 'Submit', :class=>"btn btn-danger" %>
+          </div>
+         <% end %>
+           <br/>
+         </center>

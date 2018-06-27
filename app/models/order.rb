@@ -6,6 +6,7 @@ class Order < ApplicationRecord
     "Purchase order" => "Purchase order",
   }
   validates :name, :address, :email, presence: true
+  validates :phone, numericality: true
   validates :pay_type, inclusion: pay_types.keys
 
   def add_line_items_from_cart(cart)
