@@ -4,24 +4,25 @@
   <strong>Name:</strong>
   <%= @order.name %>
 </p>
-
+<br>
 <p>
   <strong>Address:</strong>
   <%= @order.address %>
 </p>
-
+<br>
 <p>
   <strong>Email:</strong>
   <%= @order.email %>
 </p>
-
+<br>
 <p>
   <strong>Pay type:</strong>
   <%= @order.pay_type %>
 </p>
-
+<br>
 <p>
   <strong>Hàng:</strong>
+  <br>
   <%= render @order.line_items %>
 </p>
 <%= link_to 'Back', chart_index_path %>
