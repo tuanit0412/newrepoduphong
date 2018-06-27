@@ -1,6 +1,15 @@
+
+
 <% unless cart.line_items.empty? %>
 <h2>Your Cart</h2>
-<table>
+<table class="table table-hover">
+        <thead>
+                <tr>                               
+                    <th style="font-weight: bold">Qt</th>
+                    <th style="font-weight: bold">Product</th>
+                    <th style="font-weight: bold">Price</th>
+                </tr>
+            </thead>
     <%= render(cart.line_items) %>
         <tr class="total_line">
             <td colspan="2">Total</td>
@@ -8,9 +17,10 @@
                 <%= number_to_currency(cart.total_price, precision: 0, unit: "VND", separator: ",", format: "%n %u") %>
             </td>
         </tr>
-</table>
+    </table>
 <%= button_to "Checkout", new_order_path, method: :get %>
 <%= button_to 'Empty cart', cart, method: :delete,
 data: { confirm: 'Really nigga?' } %>
 <% end %>
 <div class="clear"></div>
+
