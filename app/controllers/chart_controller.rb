@@ -1,4 +1,5 @@
 class ChartController < ApplicationController
+  before_action :authenticate_user!
   $Alltotal = 0
 
   def index
