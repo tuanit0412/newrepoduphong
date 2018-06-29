@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "Women-:id" => "producttype#women", :as => :womentype
   get "type-:id" => "producttype#typeall", :as => :typeall
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "home#index", as: "home_index"
+  root :to => "home#index"
   resources :store
   resources :home
   resources :orders
