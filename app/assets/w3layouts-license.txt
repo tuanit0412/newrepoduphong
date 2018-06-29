@@ -15,12 +15,12 @@ NOTE : FREQUENTLY ASKED QUESTIONS
 
 2. Is W3layouts Templates Really Free?
 
-	Yes, all our templates free to use for both commercial and non-commercial, but you have provide a back link to w3layouts.com which is already included in footer design by w3layouts.com don’t edit or remove it.
+	Yes, all our templates free to use for both commercial and non-commercial, but you have provide a back link to w3layouts.com which is already included in footer design by w3layouts.com donï¿½t edit or remove it.
 
 3. I want to Help W3layouts, How can i?
 
 	You can help w3layouts By
-	1. Donate Some $’s, Any Amount your wish
+	1. Donate Some $ï¿½s, Any Amount your wish
 	2. Contribute Design inventory like stock photos, Icons or PSD designs with full rights to w3layouts
 
 4. I want to remove w3layouts.com back link from footer.
@@ -43,7 +43,7 @@ NOTE : FREQUENTLY ASKED QUESTIONS
 
 8. What is MOBILE Template?
 
-	Mobile template is designed using wap 2.0 standards with xhtml. In Mobile templates we don’t use javascript where basic mobile browsers not compatible with javascript and HTML5.
+	Mobile template is designed using wap 2.0 standards with xhtml. In Mobile templates we donï¿½t use javascript where basic mobile browsers not compatible with javascript and HTML5.
 	Mobile Template can be used for Java, Symbain and other basic mobile browsers.
 
 9. When we have responsive WEB template why we need separate SMARTPHONE and MOBILE template?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_22_102900) do
+ActiveRecord::Schema.define(version: 2018_06_29_031416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,20 +42,24 @@ ActiveRecord::Schema.define(version: 2018_06_22_102900) do
   end
 
   create_table "genders", force: :cascade do |t|
-    t.string "typeofgender"
+    t.string "namegd"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "genders_products", id: false, force: :cascade do |t|
-    t.bigint "gender_id", null: false
-    t.bigint "product_id", null: false
-    t.index ["gender_id", "product_id"], name: "index_genders_products_on_gender_id_and_product_id"
+  create_table "genders_products", force: :cascade do |t|
+    t.bigint "gender_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gender_id"], name: "index_genders_products_on_gender_id"
+    t.index ["product_id"], name: "index_genders_products_on_product_id"
   end
 
   create_table "line_items", force: :cascade do |t|
     t.bigint "product_id"
     t.bigint "cart_id"
+    t.bigint "size_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity", default: 1
@@ -63,6 +67,7 @@ ActiveRecord::Schema.define(version: 2018_06_22_102900) do
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
+    t.index ["size_id"], name: "index_line_items_on_size_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -72,9 +77,9 @@ ActiveRecord::Schema.define(version: 2018_06_22_102900) do
     t.string "email"
     t.string "pay_type"
     t.integer "total"
-    t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status"
   end
 
   create_table "products", force: :cascade do |t|
@@ -83,21 +88,38 @@ ActiveRecord::Schema.define(version: 2018_06_22_102900) do
     t.string "image_url"
     t.decimal "price"
     t.bigint "type_id"
-    t.bigint "gender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.index ["gender_id"], name: "index_products_on_gender_id"
+    t.boolean "hot"
     t.index ["type_id"], name: "index_products_on_type_id"
+  end
+
+  create_table "size_details", force: :cascade do |t|
+    t.bigint "size_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_size_details_on_product_id"
+    t.index ["size_id"], name: "index_size_details_on_size_id"
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.float "sizeus"
+    t.float "sizeuk"
+    t.float "sizevn"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "types", force: :cascade do |t|
     t.string "typename"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "sport"
   end
 
   create_table "users", force: :cascade do |t|
@@ -118,9 +140,13 @@ ActiveRecord::Schema.define(version: 2018_06_22_102900) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "genders_products", "genders"
+  add_foreign_key "genders_products", "products"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
-  add_foreign_key "products", "genders"
+  add_foreign_key "line_items", "sizes"
   add_foreign_key "products", "types"
+  add_foreign_key "size_details", "products"
+  add_foreign_key "size_details", "sizes"
 end

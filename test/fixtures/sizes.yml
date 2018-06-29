@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sizeus: 1
+  sizevn: 1
+
+two:
+  sizeus: 1
+  sizevn: 1

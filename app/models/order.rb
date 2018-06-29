@@ -5,9 +5,9 @@ class Order < ApplicationRecord
     "Credit card" => "Credit card",
     "Purchase order" => "Purchase order",
   }
-  validates :name, :address, :email, presence: true
-  validates :phone, numericality: true
+  validates :name, :address, :email, :phone, presence: true
   validates :pay_type, inclusion: pay_types.keys
+  validates :phone, numericality: true
 
   def add_line_items_from_cart(cart)
     cart.line_items.each do |item|

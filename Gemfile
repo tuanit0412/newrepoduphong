@@ -69,3 +69,5 @@ gem "devise"
 gem 'pg_search'
 gem 'rails_admin'
 gem 'rails_admin_rollincode', '~> 1.0'
+gem "rails_db"
+gem 'ckeditor'

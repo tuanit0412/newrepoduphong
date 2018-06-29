@@ -1,29 +1,17 @@
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-        <table class="table table-hover">
-            
-            <tbody>
-                       
-                    <% if line_item == @current_item %>
-                    <tr id="current_item">
-                        <% else %>
-                                    
-                                <td>
-                                    <%= line_item.quantity %>&times;
-                                </td>
-                                <td>
-                                    <%= line_item.product.title %>
-                                </td>
-                                <td>
-                                    <%= number_to_currency(line_item.total_price, precision: 0, unit: "VND", separator: ",", format: "%n %u") %>
-                                </td>
-                                <% end %>
-                            </tr>
-            </tbody>
-        
-        </table>
+<% if line_item == @current_item %>
+    <tr id="current_item">
+        <% else %>
+            <tr>
+                <% end %>
+                <td>
+                        <%= line_item.quantity %>&times;</td>
+                   
+                    <td>
+                        <%= line_item.product.title %>
+                    </td>
+                    <td class="item_price">
+                        <%= number_to_currency(line_item.total_price) %>
+                    </td>
+                     <%# <td>
+                        <%= line_item.size.sizeus%>
+            </tr>

@@ -14,7 +14,7 @@ class GendersTest < ApplicationSystemTestCase
     visit genders_url
     click_on "New Gender"
 
-    fill_in "Typeofgender", with: @gender.typeofgender
+    fill_in "Namegd", with: @gender.namegd
     click_on "Create Gender"
 
     assert_text "Gender was successfully created"
@@ -25,7 +25,7 @@ class GendersTest < ApplicationSystemTestCase
     visit genders_url
     click_on "Edit", match: :first
 
-    fill_in "Typeofgender", with: @gender.typeofgender
+    fill_in "Namegd", with: @gender.namegd
     click_on "Update Gender"
 
     assert_text "Gender was successfully updated"

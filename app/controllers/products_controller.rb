@@ -1,23 +1,23 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   include CurrentCart
   before_action :set_cart
-  # before_action :authenticate_user!
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
-
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all.paginate(page: params[:page], per_page: 5)
+    @products = Product.all.paginate(page: params[:page], per_page: 2)
     if params[:query].present?
-      @products = Product.search(params[:query]).paginate(page: params[:page], per_page: 5)
+      @products
     else
-      @products = Product.all.paginate(page: params[:page], per_page: 5)
+      @products
     end
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @id = params[:id]
+    @size = Product.connection.execute("select sizes.id,sizes.sizeus from products, sizes, size_details where sizes.id = size_details.size_id and products.id = size_details.product_id and products.id=#{@id}").to_a
   end
 
   # GET /products/new
@@ -77,7 +77,7 @@ class ProductsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def product_params
-    params.require(:product).permit(:title, :description, :image_url, :gender_id, :price, :image, :type_id)
+    params.require(:product).permit(:title, :description, :image_url, :price, :image, :type_id)
   end
 
   def who_bought

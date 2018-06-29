@@ -41,7 +41,22 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model Product do
+    edit do
+      # For RailsAdmin >= 0.5.0
+      configure :description, :ck_editor
+      configure :description do
+        label "Mô tả cho sản phẩm"
+      end
+      configure :image_url do
+        hide
+      end
+    end
+  end
+
   config.navigation_static_links = {
     "Report" => "/chart/index", #or whatever you used to mount RailsAdmin in your routes file
+    "Home" => "/",
   }
 end

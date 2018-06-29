@@ -90,6 +90,7 @@ body{
 	line-height: 1.8em;
 	text-transform:capitalize;
 	margin-bottom: 4%;
+	font-family: bold;
 }
 .h_nav h4.top{
 	margin-top: 12%;
@@ -195,6 +196,10 @@ body{
 }
 .slider-left{
 	float: left;
+	width: 70.5%;
+}
+.slider-righta{
+	float: right;
 	width: 70.5%;
 }
 .slider-right{
@@ -357,14 +362,20 @@ h3.m_1{
 	font-size:0.9em;
 	text-transform:uppercase;
 	font-weight:500;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap; 
 }
 p.m_2{
 	color:#999;
 	font-size:0.8125em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap; 
 }
 .price{
 	color:#555;
-	font-size:1.2em;
+	font-size:0.9em;
 	font-weight:700;
 }
 .rating {
@@ -406,6 +417,8 @@ p.m_2{
 /* Just for the demo */
 .top_box{
 	padding:6%;
+	height: 350px;
+    width: 286px;
 }
 .list{
 	float: left;
@@ -833,7 +846,7 @@ color: #000;}
 	padding: 8px;
 }	
 .search input[type="submit"]:active {
-	position:relative;
+	position:fixed;
 }
 span.m_8{
 	float: left;
@@ -2838,6 +2851,9 @@ p.cart a:hover {
 	.slider-left {
 		width: 58.5%;
 	}
+	.slider-righta {
+		width: 58.5%;
+	}
 	.slider-right {
 		width: 39.5%;
 	}
@@ -3116,6 +3132,11 @@ p.cart a:hover {
 		float: none;
 		margin: 0 auto;
 	}
+	.slider-righta {
+		width: 80%;
+		float: none;
+		margin: 0 auto;
+	}
 	.slider-right {
 		display:none;
 	}
@@ -3137,4 +3158,62 @@ p.cart a:hover {
 		font-size: 0.85em;
 		margin-bottom: 1%;
 	}
+	.max-lines{
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1; /*số dòng muốn hiện */
+		font-size: 10px;          /*cỡ chữ, đơn vị px */
+		line-height: 1.3em;        /* khoảng cách giữa các dòng, đơn vị em*/
+		max-height: 10px;   /* chiều cao tối đa đoạn văn bản = (cỡ chữ) x (số dòng) x (chiều cao) */
+	 }
+
 }								
+.col_1_of_single1.span_4_of_single1 {
+	width: 24%;
+}
+.cont.span_2_of_3 {
+	margin-left: 13.5%;
+}
+.hv {
+	text-align:center; font-size: 30px;
+    line-height: 28px;
+    font-family: AdineuePRO,Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: block;
+    -webkit-margin-before: 1.33em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+.hv1 {
+	font-style: italic;
+    font-size: 13px;
+	padding: 4px;
+	left: 10px;
+	top: 10px;
+	position: absolute;
+	transform: rotate(-90deg);
+}
+.hv2 {
+font-size: 12px;
+    color: #000;
+    background-color: #fff;
+    padding: 1px 2px;
+    text-align: center;
+    display: inline-block;
+    line-height: 1.1em;
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    -webkit-transform: translate(-100%) rotate(270deg);
+    transform: translate(-100%) rotate(270deg);
+    -webkit-transform-origin: right top;
+	transform-origin: right top;
+}
