@@ -27,7 +27,7 @@
         <% if @orders%>
             <h1>All total</h1>
             <div style="color: red">
-            <%= number_to_currency($Alltotal, precision: 0, unit: "VND", separator: ",", format: "%n %u") %>
+            <%= number_to_currency($Alltotal, precision: 0) %>
         </div>
                 <% @orders.each do |order| %>
                     <tr>
