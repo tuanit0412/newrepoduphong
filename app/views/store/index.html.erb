@@ -141,7 +141,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		<div class="clear"></div>
 		<div class="ransack-pagination" , panding>
-			<%= will_paginate @products %>
+		
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -151,6 +151,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="main">
 			<div class="wrap">
 				<h1 class="hv">Store</h1>
+				<%= will_paginate @products %>
 				<% @products.each do |product| %>
 
 					<div class="box1">
@@ -181,19 +182,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 														<% end %>
 									</div>
 								</div>
-								<ul class="list2">
-									<li>
-										<img src="/assets/plus.png" alt="" />
-										<ul class="icon1 sub-icon1 profile_img">
-											<li>
-												<a>
-													<%= button_to 'Add To Cart', line_items_path(product_id: product), remote: true, :class=>"active-icon" %>
-												</a>
-
-											</li>
-										</ul>
-									</li>
-								</ul>
+								<div class="btn_form1">
+									<%= button_to 'Add To Cart', line_items_path(product_id: product), remote: true %>
+								
+									</div>
 								<div class="clear"></div>
 							</a>
 						</div>
