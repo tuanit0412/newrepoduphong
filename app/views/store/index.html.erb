@@ -50,7 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 	</script>
-		<title>Free Adidas Website Template | Shop :: w3layouts</title>
+	<title>Free Adidas Website Template | Shop :: w3layouts</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="/assets/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -89,7 +89,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 	</script>
-	
+
 	<!-- start menu -->
 	<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="/assets/megamenu.js"></script>
@@ -123,99 +123,93 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body>
 
 
-				<div class="mens-toolbar">
-					<div class="sort">
-						<div class="sort-by">
+	<div class="mens-toolbar">
+		<div class="sort">
+			<div class="sort-by">
 
-						</div>
-					</div>
-					<div class="pager">
-						<ul class="dc_pagination dc_paginationA dc_paginationA06">
-							<li>
-								<a href="#" class="previous"></a>
-							</li>
+			</div>
+		</div>
+		<div class="pager">
+			<ul class="dc_pagination dc_paginationA dc_paginationA06">
+				<li>
+					<a href="#" class="previous"></a>
+				</li>
 
-						</ul>
-						<div class="clear"></div>
-					</div>
+			</ul>
+			<div class="clear"></div>
+		</div>
 
-					<div class="clear"></div>
-					<div class="ransack-pagination" , panding>
-						<%= will_paginate @products %>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class = "ajax">
+		<div class="clear"></div>
+		<div class="ransack-pagination" , panding>
+			<%= will_paginate @products %>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="ajax">
 
 
-	<div class="main">
-		<div class="wrap">
-				<h1 class= "hv">Store</h1>
-			<% @products.each do |product| %>
+		<div class="main">
+			<div class="wrap">
+				<h1 class="hv">Store</h1>
+				<% @products.each do |product| %>
 
-				<div class="box1">
+					<div class="box1">
 
 						<div class="col_1_of_single1 span_4_of_single1">
 							<a href="#">
 								<div class="view1 view-fifth1">
 									<div class="top_box">
 										<%if product.hot%>
-							<a class = "hv2"> Exclusive </a>
-							<% elsif (Time.now.to_i - product.created_at.to_i < 1209600 ) %>
-							<a class = "hv1"> NEW </a>
-								<%end%>
+											<a class="hv2"> Exclusive </a>
+											<% elsif (Time.now.to_i - product.created_at.to_i < 1209600 ) %>
+												<a class="hv1"> NEW </a>
+												<%end%>
 
 													<%= link_to product do %>
-
-
-
-							
-
-
-
-
-
-
-
-							
-						
-										<div class="grid_img">
-
-
-												
-													<%= image_tag product.image.url(:medium), :size =>"275x275"%>
-													
-												
-											
-										</div>
-														<p class="m_2"><%= product.type.typename %></p>
-													<h3 class="m_1">
-											<%= product.title %>
-										</h3>
-										<div class="price">
-											<%= number_to_currency(product.price) %>
-										</div>
-													<% end %>
+														<div class="grid_img">
+															<%= image_tag product.image.url(:medium), :size =>"275x275"%>
+														</div>
+														<p class="m_2">
+															<%= product.type.typename %>
+														</p>
+														<h3 class="m_1">
+															<%= product.title %>
+														</h3>
+														<div class="price">
+															<%= number_to_currency(product.price) %>
+														</div>
+														<% end %>
 									</div>
 								</div>
+								<ul class="list2">
+									<li>
+										<img src="/assets/plus.png" alt="" />
+										<ul class="icon1 sub-icon1 profile_img">
+											<li>
+												<a>
+													<%= button_to 'Add To Cart', line_items_path(product_id: product), remote: true, :class=>"active-icon" %>
+												</a>
 
+											</li>
+										</ul>
 									</li>
 								</ul>
 								<div class="clear"></div>
 							</a>
 						</div>
-			
-						</div>
-				<% end %>
 
-<div class="clear"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+					</div>
+					<% end %>
+
+						<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
 
 </body>
+
 </html>
