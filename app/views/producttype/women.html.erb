@@ -118,7 +118,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<div class="top_box">
                                     	<%if product.hot%>
 							<a class = "hv2"> Exclusive </a>
-							<% elsif (Time.now.to_i - product.created_at.to_i < 1209600 ) %>
+							<% elsif (Time.now.to_i - product.created_at.to_i < 1209600 ) %>	<!--trong vòng 15 ngày thì sản phẩm mới up sẽ có chữ new (tính theo giây =1209600s)-->
 							<a class = "hv1"> NEW </a>
 								<%end%>
 													<%= link_to product do %>

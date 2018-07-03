@@ -12,7 +12,7 @@ class ChartController < ApplicationController
     if @param != nil
       @month = @param.split("-")[1]
       @year = @param.split("-")[0]
-      @orders = Order.where("EXTRACT(month FROM created_at) = ? AND EXTRACT(year FROM created_at) = ?", "#{@month}", "#{@year}").order(created_at: :desc)
+      @orders = Order.where("EXTRACT(month FROM created_at) = ? AND EXTRACT(year FROM created_at) = ? AND status=true", "#{@month}", "#{@year}").order(created_at: :desc)
       $Alltotal = 0
       if params[:bdaymonth] != ""
         @orders.each { |order| $Alltotal += order.total }

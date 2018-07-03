@@ -41,7 +41,7 @@
       </div>
       <div class="field">
         <hr>
-        <div class="giatien"> <%= form.label :total %> : <%= number_to_currency(@total,:precision => 0) %> </div>
+        <div class="giatien"> <%= form.label :total %> : <%= number_to_currency(@total) %> </div>
         <div hidden> <%= form.number_field :total, :value =>@total,:readonly => true%> </div>
        </div>
 

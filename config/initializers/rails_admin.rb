@@ -47,9 +47,43 @@ RailsAdmin.config do |config|
       # For RailsAdmin >= 0.5.0
       configure :description, :ck_editor
       configure :description do
-        label "Mô tả cho sản phẩm"
+        label "Description"
       end
       configure :image_url do
+        hide
+      end
+      configure :line_items do
+        hide
+      end
+      configure :size_details do
+        hide
+      end
+      configure :hot do
+        label "Exclusive "
+      end
+      configure :orders do
+        hide
+      end
+    end
+  end
+  config.model Size do
+    edit do
+      # For RailsAdmin >= 0.5.0
+      configure :line_items do
+        hide
+      end
+      configure :size_details do
+        hide
+      end
+      configure :orders do
+        hide
+      end
+    end
+  end
+  config.model Order do
+    edit do
+      # For RailsAdmin >= 0.5.0
+      configure :line_items do
         hide
       end
     end

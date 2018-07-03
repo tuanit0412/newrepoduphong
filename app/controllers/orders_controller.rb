@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @total = LineItem.total
+    @total = Cart.total
     @order = Order.new
   end
 
@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
-        @total = LineItem.total
+        @total = Cart.total
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
@@ -85,6 +85,6 @@ class OrdersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def order_params
-    params.require(:order).permit(:name, :address, :phone, :email, :pay_type, :total)
+    params.require(:order).permit(:name, :address, :phone, :email, :status, :pay_type, :total)
   end
 end
